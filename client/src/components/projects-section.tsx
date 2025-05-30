@@ -171,12 +171,12 @@ export function ProjectsSection() {
                 zIndex = 2;
               } else if (position === projects.length - 1) {
                 // Left image
-                transform = "translateX(-80%) scale(0.85)";
+                transform = "translateX(-120%) scale(0.85)";
                 opacity = 0.4;
                 zIndex = 1;
               } else if (position === 1) {
                 // Right image
-                transform = "translateX(80%) scale(0.85)";
+                transform = "translateX(120%) scale(0.85)";
                 opacity = 0.4;
                 zIndex = 1;
               } else {
