@@ -223,55 +223,52 @@ export function ContactSection() {
               </p>
 
               {/* Contact Information */}
-              <div className="grid gap-6">
+              <div className="space-y-6">
                 <motion.div
-                  className="flex items-center p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/50 transition-all duration-300"
+                  className="flex items-center"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
                   viewport={{ once: true }}
-                  whileHover={{ x: 5 }}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-4">
-                    <Mail className="h-6 w-6 text-white" />
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                    <Mail className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <p className="font-semibold">Email</p>
-                    <p className="text-muted-foreground">nafeesa@example.com</p>
+                    <p className="font-semibold text-lg">nafeesa@example.com</p>
+                    <p className="text-muted-foreground text-sm">Drop me an email</p>
                   </div>
                 </motion.div>
 
                 <motion.div
-                  className="flex items-center p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/50 transition-all duration-300"
+                  className="flex items-center"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 }}
                   viewport={{ once: true }}
-                  whileHover={{ x: 5 }}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mr-4">
-                    <Phone className="h-6 w-6 text-white" />
+                  <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mr-4">
+                    <Phone className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <p className="font-semibold">Phone</p>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                    <p className="font-semibold text-lg">+1 (555) 123-4567</p>
+                    <p className="text-muted-foreground text-sm">Call me anytime</p>
                   </div>
                 </motion.div>
 
                 <motion.div
-                  className="flex items-center p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/50 transition-all duration-300"
+                  className="flex items-center"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 }}
                   viewport={{ once: true }}
-                  whileHover={{ x: 5 }}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
-                    <MapPin className="h-6 w-6 text-white" />
+                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                    <MapPin className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <p className="font-semibold">Location</p>
-                    <p className="text-muted-foreground">New York, USA</p>
+                    <p className="font-semibold text-lg">New York, USA</p>
+                    <p className="text-muted-foreground text-sm">Based in the big apple</p>
                   </div>
                 </motion.div>
               </div>
