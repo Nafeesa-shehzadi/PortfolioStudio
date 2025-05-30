@@ -280,13 +280,13 @@ export function AboutSection() {
           ))}
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-10"
+            className="space-y-6 sm:space-y-8 md:space-y-10 w-full max-w-full overflow-hidden"
           >
             {/* My Story Section */}
             <div className="relative">
@@ -297,15 +297,15 @@ export function AboutSection() {
                 transition={{ duration: 1 }}
                 viewport={{ once: true }}
               />
-              <div className="relative bg-card/50 backdrop-blur-sm rounded-3xl p-8 border border-border/50">
+              <div className="relative bg-card/50 backdrop-blur-sm rounded-3xl p-4 sm:p-6 md:p-8 border border-border/50 overflow-hidden w-full sm:w-full">
                 <motion.div
-                  className="flex items-center mb-6"
+                  className="flex flex-wrap items-center mb-6 gap-3"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-chart-2 rounded-2xl flex items-center justify-center mr-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary to-chart-2 rounded-2xl flex items-center justify-center">
                     <motion.div
                       animate={{ rotate: [0, 360] }}
                       transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
@@ -313,21 +313,21 @@ export function AboutSection() {
                       <Star className="h-6 w-6 text-white" />
                     </motion.div>
                   </div>
-                  <h3 className="text-3xl font-bold bg-gradient-to-r from-primary via-chart-2 to-accent bg-clip-text text-transparent">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary via-chart-2 to-accent bg-clip-text text-transparent break-words hyphens-auto">
                     My Story
                   </h3>
                 </motion.div>
                 
-                <div className="space-y-6 text-muted-foreground leading-relaxed">
+                <div className="space-y-4 md:space-y-6 text-muted-foreground leading-relaxed w-full max-w-full overflow-x-hidden">
                   <motion.div
-                    className="relative pl-6"
+                    className="relative pl-4 sm:pl-6 w-full"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
                   >
-                    <div className="absolute left-0 top-2 w-2 h-2 bg-primary rounded-full" />
-                    <p className="text-lg">
+                    <div className="absolute left-0 top-1.5 sm:top-2 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-primary rounded-full" style={{opacity: 1}} />
+                    <p className="text-base sm:text-lg break-words hyphens-auto pr-1 w-full">
                       I'm a full-stack developer who loves creating digital experiences that solve real-world problems.
                       With expertise in modern web technologies, I bridge the gap between design and development to
                       deliver exceptional user experiences.
@@ -335,28 +335,28 @@ export function AboutSection() {
                   </motion.div>
                   
                   <motion.div
-                    className="relative pl-6"
+                    className="relative pl-4 sm:pl-6 w-full"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
                     viewport={{ once: true }}
                   >
-                    <div className="absolute left-0 top-2 w-2 h-2 bg-chart-2 rounded-full" />
-                    <p className="text-lg">
+                    <div className="absolute left-0 top-1.5 sm:top-2 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-chart-2 rounded-full" style={{opacity: 1}} />
+                    <p className="text-base sm:text-lg break-words hyphens-auto pr-1 w-full">
                       When I'm not coding, you'll find me exploring new technologies, contributing to open source
                       projects, or sharing knowledge with the developer community through blogs and talks.
                     </p>
                   </motion.div>
                   
                   <motion.div
-                    className="relative pl-6"
+                    className="relative pl-4 sm:pl-6 w-full"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                     viewport={{ once: true }}
                   >
-                    <div className="absolute left-0 top-2 w-2 h-2 bg-accent rounded-full" />
-                    <p className="text-lg">
+                    <div className="absolute left-0 top-1.5 sm:top-2 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-accent rounded-full" style={{opacity: 1}} />
+                    <p className="text-base sm:text-lg break-words hyphens-auto pr-1 w-full">
                       My passion lies in creating scalable, performant applications that not only look beautiful
                       but also provide seamless user experiences across all devices and platforms.
                     </p>

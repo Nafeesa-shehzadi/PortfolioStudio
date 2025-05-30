@@ -43,7 +43,9 @@ export function ContactSection() {
       console.log("Success callback triggered:", data);
       toast({
         title: "Message sent!",
-        description: data.message || "Thank you for your message! I'll get back to you soon.",
+        description:
+          data.message ||
+          "Thank you for your message! I'll get back to you soon.",
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
     },
@@ -88,7 +90,7 @@ export function ContactSection() {
   };
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -115,7 +117,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-12 bg-gradient-to-br from-muted/30 via-background to-muted/50 overflow-hidden"
+      className="relative pt-24 pb-16 bg-gradient-to-br from-muted/30 via-background to-muted/50 overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -235,8 +237,10 @@ export function ContactSection() {
                     <Mail className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <p className="font-semibold text-lg">nafeesa@example.com</p>
-                    <p className="text-muted-foreground text-sm">Drop me an email</p>
+                    <p className="font-semibold text-lg">Email</p>
+                    <p className="text-muted-foreground text-sm">
+                      ns.shehzadi111@gmail.com
+                    </p>
                   </div>
                 </motion.div>
 
@@ -251,8 +255,10 @@ export function ContactSection() {
                     <Phone className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <p className="font-semibold text-lg">+1 (555) 123-4567</p>
-                    <p className="text-muted-foreground text-sm">Call me anytime</p>
+                    <p className="font-semibold text-lg">Phone</p>
+                    <p className="text-muted-foreground text-sm">
+                      +92 312 1234567
+                    </p>
                   </div>
                 </motion.div>
 
@@ -267,8 +273,10 @@ export function ContactSection() {
                     <MapPin className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <p className="font-semibold text-lg">New York, USA</p>
-                    <p className="text-muted-foreground text-sm">Based in the big apple</p>
+                    <p className="font-semibold text-lg">Location</p>
+                    <p className="text-muted-foreground text-sm">
+                      Punjab, Mandi Baha uddin, Pakistan
+                    </p>
                   </div>
                 </motion.div>
               </div>
