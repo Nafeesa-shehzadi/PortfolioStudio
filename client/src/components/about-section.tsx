@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 
 const skills = [
   { name: "React", icon: Code2, color: "from-blue-500 to-cyan-500", bgColor: "bg-blue-500/10" },
+  { name: "Next.js", icon: Globe, color: "from-gray-700 to-gray-900", bgColor: "bg-gray-500/10" },
+  { name: "Redux", icon: Database, color: "from-purple-600 to-purple-800", bgColor: "bg-purple-500/10" },
   { name: "Node.js", icon: Database, color: "from-green-500 to-emerald-500", bgColor: "bg-green-500/10" },
-  { name: "Python", icon: Code2, color: "from-yellow-500 to-orange-500", bgColor: "bg-yellow-500/10" },
-  { name: "MongoDB", icon: Database, color: "from-green-600 to-teal-600", bgColor: "bg-green-600/10" },
-  { name: "AWS", icon: Cloud, color: "from-orange-500 to-red-500", bgColor: "bg-orange-500/10" },
-  { name: "UI/UX", icon: Palette, color: "from-purple-500 to-pink-500", bgColor: "bg-purple-500/10" },
-  { name: "Mobile", icon: Smartphone, color: "from-indigo-500 to-purple-500", bgColor: "bg-indigo-500/10" },
-  { name: "Web Dev", icon: Globe, color: "from-teal-500 to-cyan-500", bgColor: "bg-teal-500/10" },
+  { name: "JavaScript", icon: Code2, color: "from-yellow-400 to-yellow-600", bgColor: "bg-yellow-400/10" },
+  { name: "TypeScript", icon: Code2, color: "from-blue-600 to-blue-800", bgColor: "bg-blue-600/10" },
+  { name: "MySQL", icon: Database, color: "from-orange-500 to-orange-700", bgColor: "bg-orange-500/10" },
+  { name: "MUI", icon: Palette, color: "from-indigo-500 to-indigo-700", bgColor: "bg-indigo-500/10" },
 ];
 
 const socialLinks = [

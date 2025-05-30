@@ -1,0 +1,51 @@
+const projects = [
+  {
+    title: "Beauty salon website",
+    description:
+      "One of the featured sites while working with TheBrandWiz.com (agency). Worked as a frontend developer to make the site user interactive and responsive.",
+    imageUrl: "/p3.png",
+    tags: ["#reactjs", "#nextjs", "#expressjs", "#mongoDB", "#nodejs"],
+    color: "orange",
+    code: "https://github.com/Nafeesa-shehzadi/complete-furniro-website",
+  },
+  {
+    title: "Company site",
+    description:
+      "Harigurus is a new-age site for all Hindu, religious, ancient and traditional literature. Built the complete site from scratch.",
+    imageUrl: "/p1.png",
+    tags: ["#reactjs", "#nextjs", "#expressjs", "#mongoDB", "#nodejs"],
+    color: "orange",
+    link: "https://website-seven-alpha-90.vercel.app/",
+    code: "https://github.com/Nafeesa-shehzadi/complete-furniro-website",
+  },
+  {
+    title: "Furniro website",
+    description:
+      "Another project description goes here. Worked on multiple features and enhancements to improve user experience.",
+    imageUrl: "/p4.png",
+    tags: ["#reactjs", "#nextjs", "#expressjs", "#mongoDB", "#nodejs"],
+    color: "purple",
+    link: "https://furniro-website-sigma.vercel.app/",
+    code: "https://github.com/Nafeesa-shehzadi/complete-furniro-website",
+  },
+
+  {
+    title: "Factory girl",
+    description:
+      "Another project description goes here. Worked on multiple features and enhancements to improve user experience.",
+    imageUrl: "/img1.png",
+    tags: ["#reactjs", "#nextjs", "#expressjs", "#mongoDB", "#nodejs"],
+    color: "purple",
+    code: "https://github.com/Nafeesa-shehzadi/complete-furniro-website",
+  },
+
+  {
+    title: "Ai MedLab",
+    description:
+      "Being a Content and Frontend lead, the site is a highly responsive and interactive website. Created new features and pages. Worked as a team with product managers and designers.",
+    imageUrl: "/p2.png",
+    tags: ["#reactjs", "#nextjs", "#expressjs", "#mongoDB", "#nodejs"],
+    color: "teal",
+    code: "https://github.com/Nafeesa-shehzadi/complete-furniro-website", 
+  },
+];
