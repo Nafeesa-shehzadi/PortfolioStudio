@@ -227,14 +227,83 @@ export function AboutSection() {
               </p>
             </div>
 
+            {/* Moving skills carousel */}
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary/5 via-chart-2/5 to-accent/5 p-8 mb-8">
+              <h4 className="text-xl font-bold mb-6 text-center">Technologies & Tools</h4>
+              <div className="relative">
+                <motion.div
+                  className="flex gap-6"
+                  animate={{
+                    x: [0, -1920],
+                  }}
+                  transition={{
+                    x: {
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      duration: 20,
+                      ease: "linear",
+                    },
+                  }}
+                >
+                  {/* First set of skills */}
+                  {skills.map((skill, index) => (
+                    <motion.div
+                      key={`first-${skill.name}`}
+                      className="flex-shrink-0 group relative overflow-hidden rounded-2xl border border-border hover:border-primary/50 bg-card/80 backdrop-blur-sm transition-all duration-300 w-24"
+                      whileHover={{ y: -5, scale: 1.05 }}
+                    >
+                      <div className="p-4 text-center">
+                        <div className={`w-12 h-12 mx-auto mb-2 ${skill.bgColor} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                          <span className="text-xl">{skill.logo}</span>
+                        </div>
+                        <p className="font-semibold text-xs group-hover:text-primary transition-colors">{skill.name}</p>
+                      </div>
+                      <motion.div
+                        className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        initial={{ scaleX: 0 }}
+                        whileHover={{ scaleX: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </motion.div>
+                  ))}
+                  {/* Duplicate set for seamless loop */}
+                  {skills.map((skill, index) => (
+                    <motion.div
+                      key={`second-${skill.name}`}
+                      className="flex-shrink-0 group relative overflow-hidden rounded-2xl border border-border hover:border-primary/50 bg-card/80 backdrop-blur-sm transition-all duration-300 w-24"
+                      whileHover={{ y: -5, scale: 1.05 }}
+                    >
+                      <div className="p-4 text-center">
+                        <div className={`w-12 h-12 mx-auto mb-2 ${skill.bgColor} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                          <span className="text-xl">{skill.logo}</span>
+                        </div>
+                        <p className="font-semibold text-xs group-hover:text-primary transition-colors">{skill.name}</p>
+                      </div>
+                      <motion.div
+                        className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        initial={{ scaleX: 0 }}
+                        whileHover={{ scaleX: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </motion.div>
+                  ))}
+                </motion.div>
+                
+                {/* Gradient overlays for smooth edges */}
+                <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+                <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+              </div>
+            </div>
+
+            {/* Static skills grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {skills.map((skill, index) => (
+              {skills.slice(0, 8).map((skill, index) => (
                 <motion.div
                   key={skill.name}
                   className="group relative overflow-hidden rounded-2xl border border-border hover:border-primary/50 bg-card/50 backdrop-blur-sm transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -8, scale: 1.05 }}
                 >

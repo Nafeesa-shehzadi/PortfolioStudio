@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Star, MessageCircle, Zap, Globe } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Star,
+  MessageCircle,
+  Zap,
+  Globe,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -42,8 +51,13 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message
+    ) {
       toast({
         title: "Error",
         description: "Please fill in all fields.",
@@ -65,58 +79,36 @@ export function ContactSection() {
     contactMutation.mutate(formData);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "nafeesa@nafeesashehzadi.dev",
-      href: "mailto:nafeesa@nafeesashehzadi.dev",
-      color: "from-blue-500 to-cyan-500",
-      bgColor: "bg-blue-500/10"
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
-      color: "from-green-500 to-emerald-500",
-      bgColor: "bg-green-500/10"
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "San Francisco, CA",
-      href: "#",
-      color: "from-purple-500 to-pink-500",
-      bgColor: "bg-purple-500/10"
-    }
-  ];
 
   const features = [
     {
       icon: Zap,
       title: "Quick Response",
-      description: "I'll get back to you within 24 hours"
+      description: "I'll get back to you within 24 hours",
     },
     {
       icon: Star,
       title: "Quality Work",
-      description: "Delivering exceptional results every time"
+      description: "Delivering exceptional results every time",
     },
     {
       icon: Globe,
       title: "Global Reach",
-      description: "Working with clients worldwide"
-    }
+      description: "Working with clients worldwide",
+    },
   ];
 
   return (
-    <section id="contact" className="relative py-24 bg-gradient-to-br from-muted/30 via-background to-muted/50 overflow-hidden">
+    <section
+      id="contact"
+      className="relative py-24 bg-gradient-to-br from-muted/30 via-background to-muted/50 overflow-hidden"
+    >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -168,7 +160,8 @@ export function ContactSection() {
             Get In Touch
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Ready to bring your ideas to life? Let's discuss your project and create something extraordinary together.
+            Ready to bring your ideas to life? Let's discuss your project and
+            create something extraordinary together.
           </p>
         </motion.div>
 
@@ -194,7 +187,9 @@ export function ContactSection() {
                 <feature.icon className="h-6 w-6 text-primary" />
               </div>
               <h4 className="font-semibold text-lg mb-2">{feature.title}</h4>
-              <p className="text-muted-foreground text-sm">{feature.description}</p>
+              <p className="text-muted-foreground text-sm">
+                {feature.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>
@@ -214,38 +209,10 @@ export function ContactSection() {
                 </span>
               </h3>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                Whether you have a project in mind, need consultation, or just want to say hello, 
-                I'm always excited to hear from potential collaborators and clients.
+                Whether you have a project in mind, need consultation, or just
+                want to say hello, I'm always excited to hear from potential
+                collaborators and clients.
               </p>
-            </div>
-
-            <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={info.label}
-                  className="group"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ x: 5 }}
-                >
-                  <a
-                    href={info.href}
-                    className="flex items-center p-4 rounded-2xl border border-border hover:border-primary/50 bg-card/50 hover:bg-card transition-all duration-300 group-hover:shadow-lg"
-                  >
-                    <div className={`w-14 h-14 ${info.bgColor} rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <info.icon className={`h-6 w-6 bg-gradient-to-r ${info.color} bg-clip-text text-transparent`} />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-lg group-hover:text-primary transition-colors">{info.label}</p>
-                      <p className="text-muted-foreground group-hover:text-foreground transition-colors">
-                        {info.value}
-                      </p>
-                    </div>
-                  </a>
-                </motion.div>
-              ))}
             </div>
           </motion.div>
 
@@ -259,11 +226,15 @@ export function ContactSection() {
             <div className="bg-card/80 backdrop-blur-sm border border-border rounded-3xl p-8 shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-chart-2/5 rounded-3xl" />
               <div className="relative">
-                <h4 className="text-2xl font-bold mb-6 text-center">Send a Message</h4>
+                <h4 className="text-2xl font-bold mb-6 text-center">
+                  Send a Message
+                </h4>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name" className="text-sm font-medium">Name</Label>
+                      <Label htmlFor="name" className="text-sm font-medium">
+                        Name
+                      </Label>
                       <Input
                         id="name"
                         name="name"
@@ -275,7 +246,9 @@ export function ContactSection() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-sm font-medium">Email</Label>
+                      <Label htmlFor="email" className="text-sm font-medium">
+                        Email
+                      </Label>
                       <Input
                         id="email"
                         name="email"
@@ -290,7 +263,9 @@ export function ContactSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="subject" className="text-sm font-medium">Subject</Label>
+                    <Label htmlFor="subject" className="text-sm font-medium">
+                      Subject
+                    </Label>
                     <Input
                       id="subject"
                       name="subject"
@@ -303,7 +278,9 @@ export function ContactSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="text-sm font-medium">Message</Label>
+                    <Label htmlFor="message" className="text-sm font-medium">
+                      Message
+                    </Label>
                     <Textarea
                       id="message"
                       name="message"
@@ -329,7 +306,11 @@ export function ContactSection() {
                       {contactMutation.isPending ? (
                         <motion.div
                           animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          transition={{
+                            duration: 1,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
                           className="mr-2"
                         >
                           <div className="w-5 h-5 border-2 border-background/30 border-t-background rounded-full" />
