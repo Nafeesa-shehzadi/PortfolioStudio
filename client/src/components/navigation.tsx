@@ -38,7 +38,37 @@ export function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-xl font-bold gradient-text">Nafeesa Shehzadi</span>
+            <motion.div
+              className="relative group cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-chart-2/20 to-accent/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative bg-gradient-to-r from-background/80 to-background/60 backdrop-blur-sm rounded-xl px-4 py-2 border border-primary/20 group-hover:border-primary/40 transition-all duration-300">
+                <motion.span 
+                  className="text-xl font-bold bg-gradient-to-r from-primary via-chart-2 to-accent bg-clip-text text-transparent"
+                  animate={{ 
+                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity, 
+                    ease: "linear" 
+                  }}
+                  style={{ 
+                    backgroundSize: "200% 200%" 
+                  }}
+                >
+                  Nafeesa Shehzadi
+                </motion.span>
+                <motion.div
+                  className="absolute -bottom-1 left-4 right-4 h-0.5 bg-gradient-to-r from-primary via-chart-2 to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Desktop Navigation */}

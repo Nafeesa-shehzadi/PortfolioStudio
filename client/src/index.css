@@ -79,6 +79,32 @@
     -webkit-text-fill-color: transparent;
   }
 
+  .logo-glow {
+    position: relative;
+  }
+
+  .logo-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--chart-2)), hsl(var(--accent)), hsl(var(--primary)));
+    background-size: 300% 300%;
+    border-radius: inherit;
+    z-index: -1;
+    animation: logo-shimmer 3s ease-in-out infinite;
+    opacity: 0.6;
+    blur: 8px;
+  }
+
+  @keyframes logo-shimmer {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
