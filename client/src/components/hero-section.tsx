@@ -92,13 +92,13 @@ export function HeroSection() {
         >
           {/* Welcome badge */}
           <motion.div
-            className="inline-flex items-center px-6 py-3 bg-primary/10 backdrop-blur-sm rounded-full text-primary text-sm font-medium mb-8 border border-primary/20"
+            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary/10 via-chart-2/10 to-accent/10 backdrop-blur-sm rounded-full text-primary text-sm font-medium mb-8 border border-primary/20"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
             <Sparkles className="h-4 w-4 mr-2 animate-pulse" />
-            Welcome to my digital world
+            Full Stack Developer & Problem Solver
           </motion.div>
 
           <motion.h1
@@ -132,7 +132,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <p className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground/90 max-w-4xl mx-auto leading-tight">
-              Full Stack Developer & UI/UX Designer
+              Full Stack Developer
             </p>
             <motion.p
               className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
@@ -140,7 +140,7 @@ export function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1 }}
             >
-              Creating digital experiences that make a difference through innovative design and cutting-edge technology
+              Crafting scalable web applications and bringing innovative ideas to life with modern technologies
             </motion.p>
           </motion.div>
 
@@ -220,25 +220,36 @@ export function HeroSection() {
 
           {/* Floating skill badges around profile */}
           <motion.div
-            className="absolute -top-2 -right-2 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium"
+            className="absolute -top-2 -right-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg"
             animate={{ rotate: [0, 5, -5, 0] }}
             transition={{ duration: 3, repeat: Infinity }}
+            whileHover={{ scale: 1.1 }}
           >
-            React
+            ⚛️ React
           </motion.div>
           <motion.div
-            className="absolute -bottom-2 -left-2 bg-chart-2 text-primary-foreground px-3 py-1 rounded-full text-sm font-medium"
+            className="absolute -bottom-2 -left-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg"
             animate={{ rotate: [0, -5, 5, 0] }}
             transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+            whileHover={{ scale: 1.1 }}
           >
-            Node.js
+            🟢 Node.js
           </motion.div>
           <motion.div
-            className="absolute top-1/2 -left-8 bg-accent text-primary-foreground px-3 py-1 rounded-full text-sm font-medium"
+            className="absolute top-1/2 -left-8 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg"
             animate={{ rotate: [0, 5, -5, 0] }}
             transition={{ duration: 3, repeat: Infinity, delay: 2 }}
+            whileHover={{ scale: 1.1 }}
           >
-            Design
+            🟨 JavaScript
+          </motion.div>
+          <motion.div
+            className="absolute top-1/2 -right-8 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg"
+            animate={{ rotate: [0, -5, 5, 0] }}
+            transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
+            whileHover={{ scale: 1.1 }}
+          >
+            ▲ Next.js
           </motion.div>
         </motion.div>
       </div>
