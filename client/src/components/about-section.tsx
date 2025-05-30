@@ -371,56 +371,103 @@ export function AboutSection() {
               className="relative"
             >
               <motion.div
-                className="absolute -inset-4 bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-cyan-500/10 rounded-3xl blur-xl"
+                className="absolute -inset-6 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-pink-500/20 rounded-[2rem] blur-2xl"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.5 }}
+                transition={{ duration: 1.5, delay: 0.5 }}
                 viewport={{ once: true }}
+                animate={{ 
+                  scale: [1, 1.05, 1],
+                  rotate: [0, 1, 0]
+                }}
+                transition={{ 
+                  duration: 4, 
+                  repeat: Infinity, 
+                  ease: "easeInOut" 
+                }}
               />
-              <div className="relative bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm rounded-3xl p-8 border border-border/50">
+              
+              <div className="relative bg-gradient-to-br from-orange-50/80 via-red-50/60 to-pink-50/80 dark:from-orange-950/30 dark:via-red-950/20 dark:to-pink-950/30 backdrop-blur-sm rounded-3xl p-8 border-2 border-gradient-to-r border-orange-200/50 dark:border-orange-800/50 shadow-2xl">
                 <motion.div
-                  className="flex items-center mb-8"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
+                  className="text-center mb-8"
+                  initial={{ opacity: 0, y: -20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center mr-4">
+                  <motion.div 
+                    className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-orange-400 via-red-500 to-pink-500 rounded-full mb-6 shadow-lg"
+                    animate={{ 
+                      boxShadow: [
+                        "0 0 20px rgba(251, 146, 60, 0.3)",
+                        "0 0 40px rgba(239, 68, 68, 0.4)", 
+                        "0 0 20px rgba(236, 72, 153, 0.3)"
+                      ]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  >
                     <motion.div
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
+                      animate={{ 
+                        rotate: [0, 360],
+                        scale: [1, 1.1, 1]
+                      }}
+                      transition={{ 
+                        rotate: { duration: 8, repeat: Infinity, ease: "linear" },
+                        scale: { duration: 2, repeat: Infinity }
+                      }}
                     >
-                      <Users className="h-6 w-6 text-white" />
+                      <Users className="h-10 w-10 text-white" />
                     </motion.div>
-                  </div>
-                  <h4 className="text-2xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">
-                    Let's Connect
+                  </motion.div>
+                  
+                  <h4 className="text-3xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent mb-4">
+                    Ready to Collaborate?
                   </h4>
+                  
+                  <motion.p 
+                    className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                    viewport={{ once: true }}
+                  >
+                    Let's turn your ideas into stunning digital experiences. I'm always excited to work on innovative projects!
+                  </motion.p>
                 </motion.div>
                 
-                <p className="text-muted-foreground mb-6 text-lg">
-                  Ready to collaborate? Let's build something amazing together!
-                </p>
-                
-                <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
                   {socialLinks.map((social, index) => (
                     <motion.div
                       key={social.label}
-                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                      transition={{ delay: 0.9 + index * 0.1, duration: 0.5 }}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.6 + index * 0.15, duration: 0.6 }}
                       viewport={{ once: true }}
-                      whileHover={{ scale: 1.05, y: -5 }}
+                      whileHover={{ scale: 1.02, x: 10 }}
                       className="group"
                     >
                       <Button
                         variant="ghost"
                         asChild
-                        className={`w-full h-16 rounded-2xl border border-border/50 hover:border-primary/50 bg-background/50 hover:bg-background/80 transition-all duration-300 ${social.color}`}
+                        className="w-full h-16 rounded-2xl bg-white/70 dark:bg-gray-800/50 border border-orange-200/50 dark:border-orange-800/30 hover:bg-orange-50 dark:hover:bg-orange-950/50 hover:border-orange-300 dark:hover:border-orange-700 transition-all duration-300 shadow-sm hover:shadow-md"
                       >
-                        <a href={social.href} aria-label={social.label} className="flex items-center justify-center space-x-3">
-                          <social.icon className="h-6 w-6" />
-                          <span className="font-medium">{social.label}</span>
+                        <a href={social.href} aria-label={social.label} className="flex items-center justify-between px-6">
+                          <div className="flex items-center space-x-4">
+                            <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-pink-500 rounded-xl flex items-center justify-center shadow-sm">
+                              <social.icon className="h-5 w-5 text-white" />
+                            </div>
+                            <div className="text-left">
+                              <span className="font-semibold text-gray-900 dark:text-gray-100 block">{social.label}</span>
+                              <span className="text-sm text-muted-foreground">Connect with me</span>
+                            </div>
+                          </div>
+                          <motion.div
+                            animate={{ x: [0, 5, 0] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                            className="text-orange-500 group-hover:text-orange-600"
+                          >
+                            →
+                          </motion.div>
                         </a>
                       </Button>
                     </motion.div>
@@ -428,15 +475,18 @@ export function AboutSection() {
                 </div>
                 
                 <motion.div
-                  className="mt-6 text-center"
+                  className="mt-8 text-center"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  transition={{ delay: 1.3 }}
+                  transition={{ delay: 1.5 }}
                   viewport={{ once: true }}
                 >
-                  <p className="text-sm text-muted-foreground">
-                    Available for freelance projects and full-time opportunities
-                  </p>
+                  <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-100 to-pink-100 dark:from-orange-900/30 dark:to-pink-900/30 rounded-full">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                      Available for new projects
+                    </span>
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
