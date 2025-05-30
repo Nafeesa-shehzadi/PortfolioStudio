@@ -283,83 +283,161 @@ export function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-10"
           >
-            <div>
-              <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
-                My Story
-              </h3>
-              <div className="space-y-6 text-muted-foreground leading-relaxed">
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+            {/* My Story Section */}
+            <div className="relative">
+              <motion.div
+                className="absolute -inset-4 bg-gradient-to-r from-primary/10 via-chart-2/10 to-accent/10 rounded-3xl blur-xl"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: true }}
+              />
+              <div className="relative bg-card/50 backdrop-blur-sm rounded-3xl p-8 border border-border/50">
+                <motion.div
+                  className="flex items-center mb-6"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
-                  className="text-lg"
                 >
-                  I'm a full-stack developer who loves creating digital
-                  experiences that solve real-world problems. With expertise in
-                  modern web technologies, I bridge the gap between design and
-                  development to deliver exceptional user experiences.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
-                  className="text-lg"
-                >
-                  When I'm not coding, you'll find me exploring new
-                  technologies, contributing to open source projects, or sharing
-                  knowledge with the developer community through blogs and
-                  talks.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  viewport={{ once: true }}
-                  className="text-lg"
-                >
-                  My passion lies in creating scalable, performant applications
-                  that not only look beautiful but also provide seamless user
-                  experiences across all devices and platforms.
-                </motion.p>
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-chart-2 rounded-2xl flex items-center justify-center mr-4">
+                    <motion.div
+                      animate={{ rotate: [0, 360] }}
+                      transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                    >
+                      <Star className="h-6 w-6 text-white" />
+                    </motion.div>
+                  </div>
+                  <h3 className="text-3xl font-bold bg-gradient-to-r from-primary via-chart-2 to-accent bg-clip-text text-transparent">
+                    My Story
+                  </h3>
+                </motion.div>
+                
+                <div className="space-y-6 text-muted-foreground leading-relaxed">
+                  <motion.div
+                    className="relative pl-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="absolute left-0 top-2 w-2 h-2 bg-primary rounded-full" />
+                    <p className="text-lg">
+                      I'm a full-stack developer who loves creating digital experiences that solve real-world problems.
+                      With expertise in modern web technologies, I bridge the gap between design and development to
+                      deliver exceptional user experiences.
+                    </p>
+                  </motion.div>
+                  
+                  <motion.div
+                    className="relative pl-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="absolute left-0 top-2 w-2 h-2 bg-chart-2 rounded-full" />
+                    <p className="text-lg">
+                      When I'm not coding, you'll find me exploring new technologies, contributing to open source
+                      projects, or sharing knowledge with the developer community through blogs and talks.
+                    </p>
+                  </motion.div>
+                  
+                  <motion.div
+                    className="relative pl-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="absolute left-0 top-2 w-2 h-2 bg-accent rounded-full" />
+                    <p className="text-lg">
+                      My passion lies in creating scalable, performant applications that not only look beautiful
+                      but also provide seamless user experiences across all devices and platforms.
+                    </p>
+                  </motion.div>
+                </div>
               </div>
             </div>
 
+            {/* Let's Connect Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
               viewport={{ once: true }}
+              className="relative"
             >
-              <h4 className="text-xl font-bold mb-6 flex items-center">
-                <Users className="h-5 w-5 mr-2 text-primary" />
-                Let's Connect
-              </h4>
-              <div className="flex gap-4">
-                {socialLinks.map((social, index) => (
-                  <motion.div
-                    key={social.label}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.9 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                  >
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      asChild
-                      className={`h-12 w-12 rounded-xl border border-border hover:border-primary/50 bg-card/50 hover:bg-card transition-all duration-300 ${social.color}`}
+              <motion.div
+                className="absolute -inset-4 bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-cyan-500/10 rounded-3xl blur-xl"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                viewport={{ once: true }}
+              />
+              <div className="relative bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm rounded-3xl p-8 border border-border/50">
+                <motion.div
+                  className="flex items-center mb-8"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center mr-4">
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
                     >
-                      <a href={social.href} aria-label={social.label}>
-                        <social.icon className="h-5 w-5" />
-                      </a>
-                    </Button>
-                  </motion.div>
-                ))}
+                      <Users className="h-6 w-6 text-white" />
+                    </motion.div>
+                  </div>
+                  <h4 className="text-2xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">
+                    Let's Connect
+                  </h4>
+                </motion.div>
+                
+                <p className="text-muted-foreground mb-6 text-lg">
+                  Ready to collaborate? Let's build something amazing together!
+                </p>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  {socialLinks.map((social, index) => (
+                    <motion.div
+                      key={social.label}
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.9 + index * 0.1, duration: 0.5 }}
+                      viewport={{ once: true }}
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className="group"
+                    >
+                      <Button
+                        variant="ghost"
+                        asChild
+                        className={`w-full h-16 rounded-2xl border border-border/50 hover:border-primary/50 bg-background/50 hover:bg-background/80 transition-all duration-300 ${social.color}`}
+                      >
+                        <a href={social.href} aria-label={social.label} className="flex items-center justify-center space-x-3">
+                          <social.icon className="h-6 w-6" />
+                          <span className="font-medium">{social.label}</span>
+                        </a>
+                      </Button>
+                    </motion.div>
+                  ))}
+                </div>
+                
+                <motion.div
+                  className="mt-6 text-center"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 1.3 }}
+                  viewport={{ once: true }}
+                >
+                  <p className="text-sm text-muted-foreground">
+                    Available for freelance projects and full-time opportunities
+                  </p>
+                </motion.div>
               </div>
             </motion.div>
           </motion.div>

@@ -18,7 +18,10 @@ export function HeroSection() {
   ];
 
   return (
-    <section id="home" className="relative pt-16 min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/30">
+    <section
+      id="home"
+      className="relative pt-16 min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/30"
+    >
       {/* Enhanced animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -107,7 +110,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <motion.span 
+            <motion.span
               className="block text-foreground/80 mb-4"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -115,7 +118,7 @@ export function HeroSection() {
             >
               Hi, I'm
             </motion.span>
-            <motion.span 
+            <motion.span
               className="block bg-gradient-to-r from-primary via-chart-2 to-accent bg-clip-text text-transparent"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -140,7 +143,8 @@ export function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1 }}
             >
-              Crafting scalable web applications and bringing innovative ideas to life with modern technologies
+              Crafting scalable web applications and bringing innovative ideas
+              to life with modern technologies
             </motion.p>
           </motion.div>
 
@@ -198,7 +202,7 @@ export function HeroSection() {
             animate={{ rotate: -360 }}
             transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
           />
-          
+
           <motion.div
             className="relative w-36 h-36 mx-auto"
             animate={{
@@ -211,7 +215,7 @@ export function HeroSection() {
             }}
           >
             <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=300"
+              src="https://img.freepik.com/free-photo/3d-portrait-woman_23-2150793881.jpg?ga=GA1.1.190189242.1739337651&semt=ais_items_boosted&w=740"
               alt="Nafeesa Shehzadi - Professional developer"
               className="w-full h-full rounded-full object-cover shadow-2xl border-4 border-background"
             />
@@ -266,7 +270,9 @@ export function HeroSection() {
           transition={{ duration: 2, repeat: Infinity }}
           className="flex flex-col items-center"
         >
-          <span className="text-sm text-muted-foreground mb-2">Scroll to explore</span>
+          <span className="text-sm text-muted-foreground mb-2">
+            Scroll to explore
+          </span>
           <ChevronDown className="h-6 w-6 text-primary" />
         </motion.div>
       </motion.div>
