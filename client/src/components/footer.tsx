@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Dribbble, Heart, Sparkles, Code, Coffee } from "lucide-react";
+import { Github, Linkedin, Twitter, Dribbble, Heart, Sparkles, Code, Coffee, AtSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const socialLinks = [
   { icon: Github, href: "#", label: "GitHub", color: "hover:text-purple-400" },
   { icon: Linkedin, href: "#", label: "LinkedIn", color: "hover:text-blue-400" },
-  { icon: Twitter, href: "#", label: "Twitter", color: "hover:text-cyan-400" },
+  { icon: AtSign, href: "#", label: "Email", color: "hover:text-cyan-400" },
   { icon: Dribbble, href: "#", label: "Dribbble", color: "hover:text-pink-400" },
 ];
 
