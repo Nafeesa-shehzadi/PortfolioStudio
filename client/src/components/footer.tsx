@@ -77,15 +77,35 @@ export function Footer() {
             className="space-y-6"
           >
             <div>
-              <motion.h3 
-                className="text-3xl font-bold mb-4 bg-gradient-to-r from-primary via-chart-2 to-accent bg-clip-text text-transparent"
+              <motion.div
+                className="relative cursor-pointer group"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
               >
-                Nafeesa Shehzadi
-              </motion.h3>
+                <motion.div
+                  className="text-3xl font-black tracking-wider select-none"
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    textShadow: "0 0 30px rgba(139, 92, 246, 0.3)"
+                  }}
+                  whileHover={{ 
+                    textShadow: "0 0 40px rgba(139, 92, 246, 0.6), 0 0 60px rgba(236, 72, 153, 0.4)"
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <span className="relative inline-block">
+                    <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                      Nafeesa
+                    </span>
+                  </span>
+                  <span className="ml-2 text-2xl font-light text-background/70 relative">
+                    S<span className="text-primary">.</span>
+                  </span>
+                </motion.div>
+              </motion.div>
               <div className="h-1 w-20 bg-gradient-to-r from-primary to-chart-2 rounded-full mb-4" />
               <p className="text-background/80 leading-relaxed">
                 Full Stack Developer passionate about creating digital experiences that make a difference. 

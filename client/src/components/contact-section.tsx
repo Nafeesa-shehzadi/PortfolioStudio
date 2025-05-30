@@ -30,17 +30,25 @@ export function ContactSection() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: InsertContact) => {
+      console.log("Sending contact form data:", data);
       const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const result = await response.json();
+      console.log("API Response:", result);
+      return result;
     },
     onSuccess: (data) => {
+      console.log("Success callback triggered:", data);
       toast({
         title: "Message sent!",
-        description: data.message,
+        description: data.message || "Thank you for your message! I'll get back to you soon.",
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
     },
     onError: (error: any) => {
+      console.error("Error callback triggered:", error);
       toast({
         title: "Error",
         description: error.message || "Something went wrong. Please try again.",
