@@ -92,7 +92,7 @@ export function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="relative py-24 bg-gradient-to-br from-background via-muted/30 to-background overflow-hidden">
+    <section id="projects" className="relative py-12 bg-gradient-to-br from-background via-muted/30 to-background overflow-hidden">
       {/* Background animations */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

@@ -115,7 +115,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-24 bg-gradient-to-br from-muted/30 via-background to-muted/50 overflow-hidden"
+      className="relative py-12 bg-gradient-to-br from-muted/30 via-background to-muted/50 overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">

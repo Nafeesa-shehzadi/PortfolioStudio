@@ -20,7 +20,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative pt-16 min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/30"
+      className="relative pt-16 pb-12 min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/30"
     >
       {/* Enhanced animated background elements */}
       <div className="absolute inset-0 overflow-hidden">

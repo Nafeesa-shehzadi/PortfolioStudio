@@ -14,6 +14,9 @@ import {
   Cloud,
   Smartphone,
   Globe,
+  Mail,
+  Phone,
+  MapPin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -180,7 +183,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative py-24 bg-gradient-to-br from-muted/20 via-background to-muted/40 overflow-hidden"
+      className="relative py-12 bg-gradient-to-br from-muted/20 via-background to-muted/40 overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -417,11 +420,43 @@ export function AboutSection() {
                 ))}
               </div>
               
+              <motion.div
+                className="mt-8 grid md:grid-cols-3 gap-4 max-w-md mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-center p-4 rounded-xl bg-card/50 border border-border/50">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <Mail className="h-4 w-4 text-white" />
+                  </div>
+                  <p className="text-sm font-medium">Email</p>
+                  <p className="text-xs text-muted-foreground">nafeesa@example.com</p>
+                </div>
+                
+                <div className="text-center p-4 rounded-xl bg-card/50 border border-border/50">
+                  <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <Phone className="h-4 w-4 text-white" />
+                  </div>
+                  <p className="text-sm font-medium">Phone</p>
+                  <p className="text-xs text-muted-foreground">+1 (555) 123-4567</p>
+                </div>
+                
+                <div className="text-center p-4 rounded-xl bg-card/50 border border-border/50">
+                  <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <MapPin className="h-4 w-4 text-white" />
+                  </div>
+                  <p className="text-sm font-medium">Location</p>
+                  <p className="text-xs text-muted-foreground">New York, USA</p>
+                </div>
+              </motion.div>
+              
               <motion.p
-                className="mt-6 text-muted-foreground"
+                className="mt-4 text-sm text-muted-foreground"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ delay: 1.3 }}
+                transition={{ delay: 1.5 }}
                 viewport={{ once: true }}
               >
                 Available for freelance projects and collaborations
