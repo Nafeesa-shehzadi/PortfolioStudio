@@ -54,7 +54,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <span className="block">Hi, I'm</span>
-            <span className="gradient-text block">Alex Johnson</span>
+            <span className="gradient-text block">Nafeesa Shehzadi</span>
           </motion.h1>
 
           <motion.p
@@ -99,7 +99,7 @@ export function HeroSection() {
         >
           <motion.img
             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300"
-            alt="Alex Johnson - Professional headshot"
+            alt="Nafeesa Shehzadi - Professional headshot"
             className="w-32 h-32 rounded-full mx-auto shadow-2xl border-4 border-background animate-float"
             animate={{
               y: [0, -10, 0],

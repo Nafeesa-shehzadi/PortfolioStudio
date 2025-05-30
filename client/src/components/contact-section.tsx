@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Star, MessageCircle, Zap, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -74,69 +74,176 @@ export function ContactSection() {
     {
       icon: Mail,
       label: "Email",
-      value: "alex@alexjohnson.dev",
-      href: "mailto:alex@alexjohnson.dev"
+      value: "nafeesa@nafeesashehzadi.dev",
+      href: "mailto:nafeesa@nafeesashehzadi.dev",
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-500/10"
     },
     {
       icon: Phone,
       label: "Phone",
       value: "+1 (555) 123-4567",
-      href: "tel:+15551234567"
+      href: "tel:+15551234567",
+      color: "from-green-500 to-emerald-500",
+      bgColor: "bg-green-500/10"
     },
     {
       icon: MapPin,
       label: "Location",
       value: "San Francisco, CA",
-      href: "#"
+      href: "#",
+      color: "from-purple-500 to-pink-500",
+      bgColor: "bg-purple-500/10"
+    }
+  ];
+
+  const features = [
+    {
+      icon: Zap,
+      title: "Quick Response",
+      description: "I'll get back to you within 24 hours"
+    },
+    {
+      icon: Star,
+      title: "Quality Work",
+      description: "Delivering exceptional results every time"
+    },
+    {
+      icon: Globe,
+      title: "Global Reach",
+      description: "Working with clients worldwide"
     }
   ];
 
   return (
-    <section id="contact" className="py-20 bg-muted/30">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative py-24 bg-gradient-to-br from-muted/30 via-background to-muted/50 overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="text-center mb-16"
+          className="absolute top-20 right-20 w-32 h-32 bg-primary/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-40 left-20 w-40 h-40 bg-chart-2/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.2, 0.5, 0.2],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <motion.div
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Get In Touch</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to start your next project? Let's work together to create something amazing.
+          <motion.div
+            className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <MessageCircle className="h-4 w-4 mr-2" />
+            Let's Collaborate
+          </motion.div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-chart-2 bg-clip-text text-transparent">
+            Get In Touch
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Ready to bring your ideas to life? Let's discuss your project and create something extraordinary together.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        {/* Features */}
+        <motion.div
+          className="grid md:grid-cols-3 gap-6 mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              className="text-center p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5, scale: 1.02 }}
+            >
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <feature.icon className="h-6 w-6 text-primary" />
+              </div>
+              <h4 className="font-semibold text-lg mb-2">{feature.title}</h4>
+              <p className="text-muted-foreground text-sm">{feature.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="space-y-8"
           >
-            <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
+            <div>
+              <h3 className="text-3xl font-bold mb-6 flex items-center">
+                <span className="bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
+                  Let's Connect
+                </span>
+              </h3>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                Whether you have a project in mind, need consultation, or just want to say hello, 
+                I'm always excited to hear from potential collaborators and clients.
+              </p>
+            </div>
+
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={info.label}
-                  className="flex items-center space-x-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
+                  whileHover={{ x: 5 }}
                 >
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <info.icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold">{info.label}</p>
-                    <a
-                      href={info.href}
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {info.value}
-                    </a>
-                  </div>
+                  <a
+                    href={info.href}
+                    className="flex items-center p-4 rounded-2xl border border-border hover:border-primary/50 bg-card/50 hover:bg-card transition-all duration-300 group-hover:shadow-lg"
+                  >
+                    <div className={`w-14 h-14 ${info.bgColor} rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <info.icon className={`h-6 w-6 bg-gradient-to-r ${info.color} bg-clip-text text-transparent`} />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-lg group-hover:text-primary transition-colors">{info.label}</p>
+                      <p className="text-muted-foreground group-hover:text-foreground transition-colors">
+                        {info.value}
+                      </p>
+                    </div>
+                  </a>
                 </motion.div>
               ))}
             </div>
@@ -147,75 +254,97 @@ export function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="relative"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Your full name"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="your@email.com"
-                    required
-                  />
-                </div>
-              </div>
+            <div className="bg-card/80 backdrop-blur-sm border border-border rounded-3xl p-8 shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-chart-2/5 rounded-3xl" />
+              <div className="relative">
+                <h4 className="text-2xl font-bold mb-6 text-center">Send a Message</h4>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="text-sm font-medium">Name</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder="Your full name"
+                        required
+                        className="h-12 rounded-xl border-border/50 focus:border-primary transition-colors"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-sm font-medium">Email</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="your@email.com"
+                        required
+                        className="h-12 rounded-xl border-border/50 focus:border-primary transition-colors"
+                      />
+                    </div>
+                  </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="subject">Subject</Label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  placeholder="Project discussion"
-                  required
-                />
-              </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="subject" className="text-sm font-medium">Subject</Label>
+                    <Input
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      placeholder="Project discussion"
+                      required
+                      className="h-12 rounded-xl border-border/50 focus:border-primary transition-colors"
+                    />
+                  </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder="Tell me about your project..."
-                  rows={4}
-                  required
-                />
-              </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="message" className="text-sm font-medium">Message</Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      placeholder="Tell me about your project, goals, and how I can help bring your vision to life..."
+                      rows={5}
+                      required
+                      className="rounded-xl border-border/50 focus:border-primary transition-colors resize-none"
+                    />
+                  </div>
 
-              <Button
-                type="submit"
-                size="lg"
-                disabled={contactMutation.isPending}
-                className="w-full"
-              >
-                {contactMutation.isPending ? (
-                  "Sending..."
-                ) : (
-                  <>
-                    <Send className="mr-2 h-4 w-4" />
-                    Send Message
-                  </>
-                )}
-              </Button>
-            </form>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Button
+                      type="submit"
+                      size="lg"
+                      disabled={contactMutation.isPending}
+                      className="w-full h-14 rounded-xl bg-gradient-to-r from-primary to-chart-2 hover:from-primary/90 hover:to-chart-2/90 text-primary-foreground font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                    >
+                      {contactMutation.isPending ? (
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          className="mr-2"
+                        >
+                          <div className="w-5 h-5 border-2 border-background/30 border-t-background rounded-full" />
+                        </motion.div>
+                      ) : (
+                        <>
+                          <Send className="mr-2 h-5 w-5" />
+                          Send Message
+                        </>
+                      )}
+                    </Button>
+                  </motion.div>
+                </form>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

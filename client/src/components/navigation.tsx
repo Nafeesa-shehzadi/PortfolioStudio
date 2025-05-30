@@ -38,7 +38,7 @@ export function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-xl font-bold gradient-text">Alex Johnson</span>
+            <span className="text-xl font-bold gradient-text">Nafeesa Shehzadi</span>
           </motion.div>
 
           {/* Desktop Navigation */}
