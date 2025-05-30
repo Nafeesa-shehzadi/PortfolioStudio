@@ -1,75 +1,206 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Dribbble } from "lucide-react";
+import { Github, Linkedin, Twitter, Dribbble, Award, Users, Clock, Star, Code2, Palette, Database, Cloud, Smartphone, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const skills = [
-  { name: "React", icon: "⚛️", color: "text-blue-500" },
-  { name: "Node.js", icon: "🟢", color: "text-green-500" },
-  { name: "Python", icon: "🐍", color: "text-yellow-500" },
-  { name: "MongoDB", icon: "🍃", color: "text-green-600" },
-  { name: "AWS", icon: "☁️", color: "text-orange-500" },
-  { name: "Figma", icon: "🎨", color: "text-purple-500" },
+  { name: "React", icon: Code2, color: "from-blue-500 to-cyan-500", bgColor: "bg-blue-500/10" },
+  { name: "Node.js", icon: Database, color: "from-green-500 to-emerald-500", bgColor: "bg-green-500/10" },
+  { name: "Python", icon: Code2, color: "from-yellow-500 to-orange-500", bgColor: "bg-yellow-500/10" },
+  { name: "MongoDB", icon: Database, color: "from-green-600 to-teal-600", bgColor: "bg-green-600/10" },
+  { name: "AWS", icon: Cloud, color: "from-orange-500 to-red-500", bgColor: "bg-orange-500/10" },
+  { name: "UI/UX", icon: Palette, color: "from-purple-500 to-pink-500", bgColor: "bg-purple-500/10" },
+  { name: "Mobile", icon: Smartphone, color: "from-indigo-500 to-purple-500", bgColor: "bg-indigo-500/10" },
+  { name: "Web Dev", icon: Globe, color: "from-teal-500 to-cyan-500", bgColor: "bg-teal-500/10" },
 ];
 
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Dribbble, href: "#", label: "Dribbble" },
+  { icon: Github, href: "#", label: "GitHub", color: "hover:text-gray-400" },
+  { icon: Linkedin, href: "#", label: "LinkedIn", color: "hover:text-blue-500" },
+  { icon: Twitter, href: "#", label: "Twitter", color: "hover:text-cyan-400" },
+  { icon: Dribbble, href: "#", label: "Dribbble", color: "hover:text-pink-500" },
+];
+
+const stats = [
+  { icon: Award, value: "5+", label: "Years Experience", color: "text-blue-500" },
+  { icon: Users, value: "50+", label: "Happy Clients", color: "text-green-500" },
+  { icon: Code2, value: "100+", label: "Projects Done", color: "text-purple-500" },
+  { icon: Star, value: "4.9", label: "Client Rating", color: "text-yellow-500" },
 ];
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="relative py-24 bg-gradient-to-br from-muted/20 via-background to-muted/40 overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="text-center mb-16"
+          className="absolute top-20 right-20 w-32 h-32 bg-primary/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-20 left-20 w-40 h-40 bg-chart-2/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.2, 0.5, 0.2],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <motion.div
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">About Me</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Passionate developer with 5+ years of experience building modern web applications
+          <motion.div
+            className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <Star className="h-4 w-4 mr-2" />
+            About Me
+          </motion.div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-chart-2 bg-clip-text text-transparent">
+            My Journey
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Passionate developer with 5+ years of experience crafting exceptional digital experiences
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Stats Section */}
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              className="text-center p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5, scale: 1.02 }}
+            >
+              <div className={`w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-r ${stat.color === 'text-blue-500' ? 'from-blue-500/10 to-blue-600/10' : stat.color === 'text-green-500' ? 'from-green-500/10 to-green-600/10' : stat.color === 'text-purple-500' ? 'from-purple-500/10 to-purple-600/10' : 'from-yellow-500/10 to-yellow-600/10'} flex items-center justify-center`}>
+                <stat.icon className={`h-6 w-6 ${stat.color}`} />
+              </div>
+              <motion.div
+                className={`text-3xl font-bold ${stat.color} mb-2`}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 + index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                {stat.value}
+              </motion.div>
+              <p className="text-muted-foreground text-sm font-medium">{stat.label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="space-y-8"
           >
-            <h3 className="text-2xl font-bold mb-6">My Story</h3>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                I'm a full-stack developer who loves creating digital experiences that solve real-world problems.
-                With expertise in modern web technologies, I bridge the gap between design and development to
-                deliver exceptional user experiences.
-              </p>
-              <p>
-                When I'm not coding, you'll find me exploring new technologies, contributing to open source
-                projects, or sharing knowledge with the developer community through blogs and talks.
-              </p>
+            <div>
+              <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
+                My Story
+              </h3>
+              <div className="space-y-6 text-muted-foreground leading-relaxed">
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className="text-lg"
+                >
+                  I'm a full-stack developer who loves creating digital experiences that solve real-world problems.
+                  With expertise in modern web technologies, I bridge the gap between design and development to
+                  deliver exceptional user experiences.
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  viewport={{ once: true }}
+                  className="text-lg"
+                >
+                  When I'm not coding, you'll find me exploring new technologies, contributing to open source
+                  projects, or sharing knowledge with the developer community through blogs and talks.
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  viewport={{ once: true }}
+                  className="text-lg"
+                >
+                  My passion lies in creating scalable, performant applications that not only look beautiful
+                  but also provide seamless user experiences across all devices and platforms.
+                </motion.p>
+              </div>
             </div>
 
-            <div className="flex gap-4 mt-8">
-              {socialLinks.map((social) => (
-                <Button
-                  key={social.label}
-                  variant="ghost"
-                  size="icon"
-                  asChild
-                  className="hover:text-primary transition-colors duration-300"
-                >
-                  <a href={social.href} aria-label={social.label}>
-                    <social.icon className="h-5 w-5" />
-                  </a>
-                </Button>
-              ))}
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h4 className="text-xl font-bold mb-6 flex items-center">
+                <Users className="h-5 w-5 mr-2 text-primary" />
+                Let's Connect
+              </h4>
+              <div className="flex gap-4">
+                {socialLinks.map((social, index) => (
+                  <motion.div
+                    key={social.label}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.9 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                  >
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      asChild
+                      className={`h-12 w-12 rounded-xl border border-border hover:border-primary/50 bg-card/50 hover:bg-card transition-all duration-300 ${social.color}`}
+                    >
+                      <a href={social.href} aria-label={social.label}>
+                        <social.icon className="h-5 w-5" />
+                      </a>
+                    </Button>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
 
           <motion.div
@@ -77,24 +208,55 @@ export function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="space-y-8"
           >
-            <h3 className="text-2xl font-bold mb-6">Skills & Technologies</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <div>
+              <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-chart-2 to-accent bg-clip-text text-transparent">
+                Skills & Technologies
+              </h3>
+              <p className="text-muted-foreground mb-8 text-lg">
+                Proficient in modern technologies and frameworks, always learning and adapting to new tools.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
-                  className="skill-badge bg-background p-4 rounded-xl text-center transition-all duration-300 hover:shadow-lg hover:scale-105 border border-border"
+                  className="group relative overflow-hidden rounded-2xl border border-border hover:border-primary/50 bg-card/50 backdrop-blur-sm transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
                 >
-                  <div className="text-3xl mb-2">{skill.icon}</div>
-                  <p className="font-semibold">{skill.name}</p>
+                  <div className="p-6 text-center">
+                    <div className={`w-12 h-12 mx-auto mb-4 ${skill.bgColor} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <skill.icon className={`h-6 w-6 bg-gradient-to-r ${skill.color} bg-clip-text text-transparent`} />
+                    </div>
+                    <p className="font-semibold text-lg group-hover:text-primary transition-colors">{skill.name}</p>
+                  </div>
+                  <div className={`absolute inset-0 bg-gradient-to-r ${skill.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                 </motion.div>
               ))}
             </div>
+
+            <motion.div
+              className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-primary/5 to-chart-2/5 border border-primary/20"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center mb-4">
+                <Clock className="h-5 w-5 mr-2 text-primary" />
+                <h4 className="font-bold text-lg">Always Learning</h4>
+              </div>
+              <p className="text-muted-foreground">
+                Currently exploring AI/ML integration, blockchain development, and advanced cloud architectures
+                to stay ahead of the technology curve.
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </div>
