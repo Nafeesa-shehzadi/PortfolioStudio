@@ -362,133 +362,70 @@ export function AboutSection() {
               </div>
             </div>
 
-            {/* Let's Connect Section */}
+            {/* Connect Section - Simple & Elegant */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
               viewport={{ once: true }}
-              className="relative"
+              className="text-center"
             >
-              <motion.div
-                className="absolute -inset-6 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-pink-500/20 rounded-[2rem] blur-2xl"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1.5, delay: 0.5 }}
-                viewport={{ once: true }}
-                animate={{ 
-                  scale: [1, 1.05, 1],
-                  rotate: [0, 1, 0]
-                }}
-                transition={{ 
-                  duration: 4, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-              />
+              <h4 className="text-2xl font-bold mb-8 bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Connect With Me
+              </h4>
               
-              <div className="relative bg-gradient-to-br from-orange-50/80 via-red-50/60 to-pink-50/80 dark:from-orange-950/30 dark:via-red-950/20 dark:to-pink-950/30 backdrop-blur-sm rounded-3xl p-8 border-2 border-gradient-to-r border-orange-200/50 dark:border-orange-800/50 shadow-2xl">
-                <motion.div
-                  className="text-center mb-8"
-                  initial={{ opacity: 0, y: -20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  viewport={{ once: true }}
-                >
-                  <motion.div 
-                    className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-orange-400 via-red-500 to-pink-500 rounded-full mb-6 shadow-lg"
-                    animate={{ 
-                      boxShadow: [
-                        "0 0 20px rgba(251, 146, 60, 0.3)",
-                        "0 0 40px rgba(239, 68, 68, 0.4)", 
-                        "0 0 20px rgba(236, 72, 153, 0.3)"
-                      ]
+              <div className="flex justify-center gap-6">
+                {socialLinks.map((social, index) => (
+                  <motion.div
+                    key={social.label}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.9 + index * 0.1, duration: 0.4 }}
+                    viewport={{ once: true }}
+                    whileHover={{ 
+                      scale: 1.2, 
+                      y: -8,
+                      transition: { duration: 0.2 }
                     }}
-                    transition={{ duration: 3, repeat: Infinity }}
+                    className="group relative"
                   >
                     <motion.div
-                      animate={{ 
-                        rotate: [0, 360],
-                        scale: [1, 1.1, 1]
-                      }}
-                      transition={{ 
-                        rotate: { duration: 8, repeat: Infinity, ease: "linear" },
-                        scale: { duration: 2, repeat: Infinity }
-                      }}
+                      className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-purple-500/20 to-pink-500/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      initial={false}
+                    />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      asChild
+                      className={`relative h-14 w-14 rounded-full border-2 border-border hover:border-primary bg-background/80 hover:bg-background shadow-lg hover:shadow-xl transition-all duration-300 ${social.color}`}
                     >
-                      <Users className="h-10 w-10 text-white" />
+                      <a href={social.href} aria-label={social.label}>
+                        <social.icon className="h-6 w-6" />
+                      </a>
+                    </Button>
+                    
+                    {/* Tooltip */}
+                    <motion.div
+                      className="absolute -top-12 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-foreground text-background text-sm font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap"
+                      initial={{ y: 10 }}
+                      whileHover={{ y: 0 }}
+                    >
+                      {social.label}
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-foreground" />
                     </motion.div>
                   </motion.div>
-                  
-                  <h4 className="text-3xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent mb-4">
-                    Ready to Collaborate?
-                  </h4>
-                  
-                  <motion.p 
-                    className="text-lg text-muted-foreground max-w-md mx-auto leading-relaxed"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                    viewport={{ once: true }}
-                  >
-                    Let's turn your ideas into stunning digital experiences. I'm always excited to work on innovative projects!
-                  </motion.p>
-                </motion.div>
-                
-                <div className="space-y-4">
-                  {socialLinks.map((social, index) => (
-                    <motion.div
-                      key={social.label}
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.6 + index * 0.15, duration: 0.6 }}
-                      viewport={{ once: true }}
-                      whileHover={{ scale: 1.02, x: 10 }}
-                      className="group"
-                    >
-                      <Button
-                        variant="ghost"
-                        asChild
-                        className="w-full h-16 rounded-2xl bg-white/70 dark:bg-gray-800/50 border border-orange-200/50 dark:border-orange-800/30 hover:bg-orange-50 dark:hover:bg-orange-950/50 hover:border-orange-300 dark:hover:border-orange-700 transition-all duration-300 shadow-sm hover:shadow-md"
-                      >
-                        <a href={social.href} aria-label={social.label} className="flex items-center justify-between px-6">
-                          <div className="flex items-center space-x-4">
-                            <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-pink-500 rounded-xl flex items-center justify-center shadow-sm">
-                              <social.icon className="h-5 w-5 text-white" />
-                            </div>
-                            <div className="text-left">
-                              <span className="font-semibold text-gray-900 dark:text-gray-100 block">{social.label}</span>
-                              <span className="text-sm text-muted-foreground">Connect with me</span>
-                            </div>
-                          </div>
-                          <motion.div
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                            className="text-orange-500 group-hover:text-orange-600"
-                          >
-                            →
-                          </motion.div>
-                        </a>
-                      </Button>
-                    </motion.div>
-                  ))}
-                </div>
-                
-                <motion.div
-                  className="mt-8 text-center"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 1.5 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-100 to-pink-100 dark:from-orange-900/30 dark:to-pink-900/30 rounded-full">
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                      Available for new projects
-                    </span>
-                  </div>
-                </motion.div>
+                ))}
               </div>
+              
+              <motion.p
+                className="mt-6 text-muted-foreground"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 1.3 }}
+                viewport={{ once: true }}
+              >
+                Available for freelance projects and collaborations
+              </motion.p>
             </motion.div>
           </motion.div>
 
