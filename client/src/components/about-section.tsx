@@ -3,14 +3,22 @@ import { Github, Linkedin, Twitter, Dribbble, Award, Users, Clock, Star, Code2, 
 import { Button } from "@/components/ui/button";
 
 const skills = [
-  { name: "React", icon: Code2, color: "from-blue-500 to-cyan-500", bgColor: "bg-blue-500/10" },
-  { name: "Next.js", icon: Globe, color: "from-gray-700 to-gray-900", bgColor: "bg-gray-500/10" },
-  { name: "Redux", icon: Database, color: "from-purple-600 to-purple-800", bgColor: "bg-purple-500/10" },
-  { name: "Node.js", icon: Database, color: "from-green-500 to-emerald-500", bgColor: "bg-green-500/10" },
-  { name: "JavaScript", icon: Code2, color: "from-yellow-400 to-yellow-600", bgColor: "bg-yellow-400/10" },
-  { name: "TypeScript", icon: Code2, color: "from-blue-600 to-blue-800", bgColor: "bg-blue-600/10" },
-  { name: "MySQL", icon: Database, color: "from-orange-500 to-orange-700", bgColor: "bg-orange-500/10" },
-  { name: "MUI", icon: Palette, color: "from-indigo-500 to-indigo-700", bgColor: "bg-indigo-500/10" },
+  { name: "React", icon: Code2, color: "from-blue-500 to-cyan-500", bgColor: "bg-blue-500/10", logo: "⚛️" },
+  { name: "Next.js", icon: Globe, color: "from-gray-700 to-gray-900", bgColor: "bg-gray-500/10", logo: "▲" },
+  { name: "Redux", icon: Database, color: "from-purple-600 to-purple-800", bgColor: "bg-purple-500/10", logo: "🔄" },
+  { name: "Node.js", icon: Database, color: "from-green-500 to-emerald-500", bgColor: "bg-green-500/10", logo: "🟢" },
+  { name: "JavaScript", icon: Code2, color: "from-yellow-400 to-yellow-600", bgColor: "bg-yellow-400/10", logo: "🟨" },
+  { name: "TypeScript", icon: Code2, color: "from-blue-600 to-blue-800", bgColor: "bg-blue-600/10", logo: "🔷" },
+  { name: "MySQL", icon: Database, color: "from-orange-500 to-orange-700", bgColor: "bg-orange-500/10", logo: "🗄️" },
+  { name: "MUI", icon: Palette, color: "from-indigo-500 to-indigo-700", bgColor: "bg-indigo-500/10", logo: "🎨" },
+  { name: "HTML5", icon: Code2, color: "from-orange-500 to-red-500", bgColor: "bg-orange-500/10", logo: "🌐" },
+  { name: "CSS3", icon: Palette, color: "from-blue-400 to-blue-600", bgColor: "bg-blue-400/10", logo: "🎨" },
+  { name: "Sass", icon: Palette, color: "from-pink-500 to-pink-700", bgColor: "bg-pink-500/10", logo: "💎" },
+  { name: "Tailwind", icon: Palette, color: "from-cyan-400 to-teal-500", bgColor: "bg-cyan-400/10", logo: "🎯" },
+  { name: "Git", icon: Code2, color: "from-orange-600 to-red-600", bgColor: "bg-orange-600/10", logo: "📝" },
+  { name: "Express", icon: Database, color: "from-gray-600 to-gray-800", bgColor: "bg-gray-600/10", logo: "⚡" },
+  { name: "MongoDB", icon: Database, color: "from-green-600 to-green-800", bgColor: "bg-green-600/10", logo: "🍃" },
+  { name: "Figma", icon: Palette, color: "from-purple-500 to-pink-500", bgColor: "bg-purple-500/10", logo: "🎨" },
 ];
 
 const socialLinks = [
@@ -219,24 +227,30 @@ export function AboutSection() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
                   className="group relative overflow-hidden rounded-2xl border border-border hover:border-primary/50 bg-card/50 backdrop-blur-sm transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -8, scale: 1.02 }}
+                  whileHover={{ y: -8, scale: 1.05 }}
                 >
-                  <div className="p-6 text-center">
-                    <div className={`w-12 h-12 mx-auto mb-4 ${skill.bgColor} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                      <skill.icon className={`h-6 w-6 bg-gradient-to-r ${skill.color} bg-clip-text text-transparent`} />
+                  <div className="p-4 text-center">
+                    <div className={`w-12 h-12 mx-auto mb-3 ${skill.bgColor} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <span className="text-2xl">{skill.logo}</span>
                     </div>
-                    <p className="font-semibold text-lg group-hover:text-primary transition-colors">{skill.name}</p>
+                    <p className="font-semibold text-sm group-hover:text-primary transition-colors">{skill.name}</p>
                   </div>
                   <div className={`absolute inset-0 bg-gradient-to-r ${skill.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={{ scaleX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
                 </motion.div>
               ))}
             </div>

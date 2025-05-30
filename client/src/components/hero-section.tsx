@@ -211,8 +211,8 @@ export function HeroSection() {
             }}
           >
             <img
-              src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300"
-              alt="Nafeesa Shehzadi - Professional headshot"
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&h=300"
+              alt="Nafeesa Shehzadi - Professional developer"
               className="w-full h-full rounded-full object-cover shadow-2xl border-4 border-background"
             />
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-chart-2/20" />
