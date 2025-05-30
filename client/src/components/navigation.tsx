@@ -39,27 +39,57 @@ export function Navigation() {
             transition={{ duration: 0.5 }}
           >
             <motion.div
-              className="relative cursor-pointer"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
+              className="relative cursor-pointer group"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              <motion.h1 
-                className="text-2xl font-extrabold tracking-tight"
-                whileHover={{ y: -1 }}
-                transition={{ duration: 0.2 }}
-              >
-                <span className="bg-gradient-to-r from-primary via-chart-2 to-accent bg-clip-text text-transparent font-serif">
-                  Nafees
-                </span>
-                <span className="text-foreground/80 ml-1 font-sans">
-                  S.
-                </span>
-              </motion.h1>
-              <motion.div
-                className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-chart-2 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
-                whileHover={{ scaleX: 1 }}
-                transition={{ duration: 0.3 }}
-              />
+              <div className="relative">
+                <motion.div
+                  className="text-3xl font-black tracking-wider select-none"
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    textShadow: "0 0 30px rgba(139, 92, 246, 0.3)"
+                  }}
+                  whileHover={{ 
+                    textShadow: "0 0 40px rgba(139, 92, 246, 0.6), 0 0 60px rgba(236, 72, 153, 0.4)"
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <span className="relative inline-block">
+                    <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                      Nafeesa
+                    </span>
+                    <motion.span
+                      className="absolute -inset-1 bg-gradient-to-r from-violet-600/20 via-purple-600/20 to-pink-600/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ zIndex: -1 }}
+                    />
+                  </span>
+                  <span className="ml-2 text-2xl font-light text-foreground/70 relative">
+                    S<span className="text-primary">.</span>
+                  </span>
+                </motion.div>
+                
+                {/* Decorative elements */}
+                <motion.div
+                  className="absolute -bottom-2 left-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent w-full"
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  whileHover={{ scaleX: 1, opacity: 1 }}
+                  transition={{ duration: 0.4 }}
+                />
+                
+                <motion.div
+                  className="absolute -top-1 -right-1 w-2 h-2 bg-gradient-to-r from-primary to-pink-500 rounded-full opacity-0 group-hover:opacity-100"
+                  animate={{ 
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 180, 360]
+                  }}
+                  transition={{ 
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+              </div>
             </motion.div>
           </motion.div>
 
