@@ -3,12 +3,23 @@
     { 
       "src": "./server/index.ts", 
       "use": "@vercel/node"
+    },
+    {
+      "src": "client/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
-    { 
-      "src": "/(.*)", 
+    {
+      "src": "/api/(.*)",
       "dest": "/server/index.ts"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/client/index.html"
     }
   ]
 }
