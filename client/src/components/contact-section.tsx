@@ -16,8 +16,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import type { InsertContact } from "@shared/schema";
+import { api } from "@/lib/api";
+import type { ContactFormData } from "@/types";
 
 export function ContactSection() {
   const { toast } = useToast();
@@ -29,15 +29,10 @@ export function ContactSection() {
   });
 
   const contactMutation = useMutation({
-    mutationFn: async (data: InsertContact) => {
+    mutationFn: async (data: ContactFormData) => {
       console.log("Sending contact form data:", data);
-      const response = await apiRequest("POST", "/api/contact", data);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const result = await response.json();
-      console.log("API Response:", result);
-      return result;
+      // Using our API service that leverages environment variables
+      return await api.submitContactForm(data);
     },
     onSuccess: (data) => {
       console.log("Success callback triggered:", data);
