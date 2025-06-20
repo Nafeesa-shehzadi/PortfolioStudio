@@ -1,6 +1,10 @@
+// Load environment variables first
+import 'dotenv/config';
+
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
-import { setupVite, serveStatic, log } from "./vite";
+import { testConnection } from "./db";
+import { setupVite, serveStatic } from "./vite";
 
 const app = express();
 app.use(express.json());
@@ -29,7 +33,7 @@ app.use((req, res, next) => {
         logLine = logLine.slice(0, 79) + "…";
       }
 
-      log(logLine);
+      console.log(logLine);
     }
   });
 
@@ -37,6 +41,9 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  console.log("🔌 Testing database connection...");
+  await testConnection();
+
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
@@ -47,20 +54,18 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
-  if (app.get("env") === "development") {
+  const PORT = Number(process.env.PORT) || 5003; // Changed to 5003 to avoid any conflicts
+  
+  // Setup Vite in development mode or serve static files in production
+  if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
+    console.log("📦 Vite middleware enabled for development");
   } else {
     serveStatic(app);
+    console.log("📦 Serving static files for production");
   }
-
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
-  const port = 5000;
-  server.listen(port, () => {
-    log(`serving on port ${port}`);
+  
+  server.listen(PORT, "0.0.0.0", () => {
+    console.log(`🚀 Server running on port ${PORT}`);
   });
 })();

@@ -265,7 +265,7 @@ export function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
       >
-        <motion.div
+        {/* <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="flex flex-col items-center"
@@ -274,7 +274,7 @@ export function HeroSection() {
             Scroll to explore
           </span>
           <ChevronDown className="h-6 w-6 text-primary" />
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </section>
   );

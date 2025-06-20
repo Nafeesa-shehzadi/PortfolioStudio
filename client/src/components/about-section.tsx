@@ -260,7 +260,15 @@ export function AboutSection() {
               whileHover={{ y: -5, scale: 1.02 }}
             >
               <div
-                className={`w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-r ${stat.color === "text-blue-500" ? "from-blue-500/10 to-blue-600/10" : stat.color === "text-green-500" ? "from-green-500/10 to-green-600/10" : stat.color === "text-purple-500" ? "from-purple-500/10 to-purple-600/10" : "from-yellow-500/10 to-yellow-600/10"} flex items-center justify-center`}
+                className={`w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-r ${
+                  stat.color === "text-blue-500"
+                    ? "from-blue-500/10 to-blue-600/10"
+                    : stat.color === "text-green-500"
+                    ? "from-green-500/10 to-green-600/10"
+                    : stat.color === "text-purple-500"
+                    ? "from-purple-500/10 to-purple-600/10"
+                    : "from-yellow-500/10 to-yellow-600/10"
+                } flex items-center justify-center`}
               >
                 <stat.icon className={`h-6 w-6 ${stat.color}`} />
               </div>
@@ -288,79 +296,168 @@ export function AboutSection() {
             viewport={{ once: true }}
             className="space-y-6 sm:space-y-8 md:space-y-10 w-full max-w-full overflow-hidden"
           >
-            {/* My Story Section */}
-            <div className="relative">
+            {/* My Story Section - Redesigned with flowing timeline design */}
+            <div className="relative w-full">
               <motion.div
-                className="absolute -inset-4 bg-gradient-to-r from-primary/10 via-chart-2/10 to-accent/10 rounded-3xl blur-xl"
+                className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-chart-2/20 to-accent/20 rounded-3xl blur-xl"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 1 }}
                 viewport={{ once: true }}
               />
-              <div className="relative bg-card/50 backdrop-blur-sm rounded-3xl p-4 sm:p-6 md:p-8 border border-border/50 overflow-hidden w-full sm:w-full">
-                <motion.div
-                  className="flex flex-wrap items-center mb-6 gap-3"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary to-chart-2 rounded-2xl flex items-center justify-center">
+              <div className="relative bg-card/50 backdrop-blur-sm rounded-3xl border border-border/50 w-full overflow-hidden">
+                {/* Header with animated background */}
+                <div className="relative overflow-hidden bg-gradient-to-r from-primary/10 via-chart-2/10 to-accent/10 p-4 sm:p-6 md:p-8">
+                  <motion.div 
+                    className="absolute -inset-full bg-gradient-to-r from-primary/5 to-accent/5"
+                    animate={{ 
+                      x: ['-100%', '100%'],
+                      opacity: [0.3, 0.6, 0.3]
+                    }}
+                    transition={{ 
+                      duration: 15, 
+                      repeat: Infinity,
+                      ease: "linear" 
+                    }}
+                  />
+                  
+                  <motion.div
+                    className="flex flex-wrap items-center gap-3 sm:gap-4 relative z-10"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-r from-primary to-chart-2 rounded-2xl flex items-center justify-center shadow-lg">
+                      <motion.div
+                        animate={{ rotate: [0, 360] }}
+                        transition={{
+                          duration: 8,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                      >
+                        <Star className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-white" />
+                      </motion.div>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-primary via-chart-2 to-accent bg-clip-text text-transparent break-words">
+                      My Story
+                    </h3>
+                  </motion.div>
+                </div>
+                
+                {/* Content with flowing timeline design */}
+                <div className="p-4 sm:p-6 md:p-8 relative">
+                  {/* Timeline line */}
+                  <div className="absolute left-4 sm:left-8 top-8 bottom-8 w-0.5 bg-gradient-to-b from-primary via-chart-2 to-accent opacity-50 hidden sm:block"></div>
+                  
+                  <div className="space-y-8 sm:space-y-12 relative">
+                    {/* Section 1 */}
                     <motion.div
-                      animate={{ rotate: [0, 360] }}
-                      transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                      className="relative pl-0 sm:pl-12"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      viewport={{ once: true }}
                     >
-                      <Star className="h-6 w-6 text-white" />
+                      {/* Timeline dot - only visible on sm and up */}
+                      <div className="absolute left-0 top-1 w-4 h-4 rounded-full bg-gradient-to-r from-primary to-primary/80 hidden sm:flex items-center justify-center shadow-md">
+                        <div className="w-2 h-2 rounded-full bg-white"></div>
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="flex items-start gap-3 sm:gap-4">
+                        <div className="flex items-center justify-center p-2 rounded-lg bg-primary/10 sm:hidden">
+                          <Code2 className="h-5 w-5 text-primary" />
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2">
+                            <div className="hidden sm:flex items-center justify-center p-2 rounded-lg bg-primary/10">
+                              <Code2 className="h-5 w-5 text-primary" />
+                            </div>
+                            <h4 className="text-base sm:text-lg font-medium text-foreground">Passionate Developer</h4>
+                          </div>
+                          
+                          <p className="text-xs sm:text-sm md:text-base text-muted-foreground break-words">
+                            I'm a full-stack developer who loves creating digital experiences that solve real-world problems. 
+                            With expertise in modern web technologies, I bridge the gap between design and development to 
+                            deliver exceptional user experiences.
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                    
+                    {/* Section 2 */}
+                    <motion.div
+                      className="relative pl-0 sm:pl-12"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                      viewport={{ once: true }}
+                    >
+                      {/* Timeline dot - only visible on sm and up */}
+                      <div className="absolute left-0 top-1 w-4 h-4 rounded-full bg-gradient-to-r from-chart-2 to-chart-2/80 hidden sm:flex items-center justify-center shadow-md">
+                        <div className="w-2 h-2 rounded-full bg-white"></div>
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="flex items-start gap-3 sm:gap-4">
+                        <div className="flex items-center justify-center p-2 rounded-lg bg-chart-2/10 sm:hidden">
+                          <Globe className="h-5 w-5 text-chart-2" />
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2">
+                            <div className="hidden sm:flex items-center justify-center p-2 rounded-lg bg-chart-2/10">
+                              <Globe className="h-5 w-5 text-chart-2" />
+                            </div>
+                            <h4 className="text-base sm:text-lg font-medium text-foreground">Community Contributor</h4>
+                          </div>
+                          
+                          <p className="text-xs sm:text-sm md:text-base text-muted-foreground break-words">
+                            When I'm not coding, you'll find me exploring new technologies, contributing to open source
+                            projects, or sharing knowledge with the developer community through blogs and talks.
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                    
+                    {/* Section 3 */}
+                    <motion.div
+                      className="relative pl-0 sm:pl-12"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6 }}
+                      viewport={{ once: true }}
+                    >
+                      {/* Timeline dot - only visible on sm and up */}
+                      <div className="absolute left-0 top-1 w-4 h-4 rounded-full bg-gradient-to-r from-accent to-accent/80 hidden sm:flex items-center justify-center shadow-md">
+                        <div className="w-2 h-2 rounded-full bg-white"></div>
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="flex items-start gap-3 sm:gap-4">
+                        <div className="flex items-center justify-center p-2 rounded-lg bg-accent/10 sm:hidden">
+                          <Smartphone className="h-5 w-5 text-accent" />
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2">
+                            <div className="hidden sm:flex items-center justify-center p-2 rounded-lg bg-accent/10">
+                              <Smartphone className="h-5 w-5 text-accent" />
+                            </div>
+                            <h4 className="text-base sm:text-lg font-medium text-foreground">User-Focused Approach</h4>
+                          </div>
+                          
+                          <p className="text-xs sm:text-sm md:text-base text-muted-foreground break-words">
+                            My passion lies in creating scalable, performant applications that not only look beautiful 
+                            but also provide seamless user experiences across all devices and platforms.
+                          </p>
+                        </div>
+                      </div>
                     </motion.div>
                   </div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary via-chart-2 to-accent bg-clip-text text-transparent break-words hyphens-auto">
-                    My Story
-                  </h3>
-                </motion.div>
-                
-                <div className="space-y-4 md:space-y-6 text-muted-foreground leading-relaxed w-full max-w-full overflow-x-hidden">
-                  <motion.div
-                    className="relative pl-4 sm:pl-6 w-full"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="absolute left-0 top-1.5 sm:top-2 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-primary rounded-full" style={{opacity: 1}} />
-                    <p className="text-base sm:text-lg break-words hyphens-auto pr-1 w-full">
-                      I'm a full-stack developer who loves creating digital experiences that solve real-world problems.
-                      With expertise in modern web technologies, I bridge the gap between design and development to
-                      deliver exceptional user experiences.
-                    </p>
-                  </motion.div>
-                  
-                  <motion.div
-                    className="relative pl-4 sm:pl-6 w-full"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="absolute left-0 top-1.5 sm:top-2 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-chart-2 rounded-full" style={{opacity: 1}} />
-                    <p className="text-base sm:text-lg break-words hyphens-auto pr-1 w-full">
-                      When I'm not coding, you'll find me exploring new technologies, contributing to open source
-                      projects, or sharing knowledge with the developer community through blogs and talks.
-                    </p>
-                  </motion.div>
-                  
-                  <motion.div
-                    className="relative pl-4 sm:pl-6 w-full"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="absolute left-0 top-1.5 sm:top-2 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-accent rounded-full" style={{opacity: 1}} />
-                    <p className="text-base sm:text-lg break-words hyphens-auto pr-1 w-full">
-                      My passion lies in creating scalable, performant applications that not only look beautiful
-                      but also provide seamless user experiences across all devices and platforms.
-                    </p>
-                  </motion.div>
                 </div>
               </div>
             </div>
@@ -376,7 +473,7 @@ export function AboutSection() {
               <h4 className="text-2xl font-bold mb-8 bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Connect With Me
               </h4>
-              
+
               <div className="flex justify-center gap-6">
                 {socialLinks.map((social, index) => (
                   <motion.div
@@ -385,10 +482,10 @@ export function AboutSection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.9 + index * 0.1, duration: 0.4 }}
                     viewport={{ once: true }}
-                    whileHover={{ 
-                      scale: 1.2, 
+                    whileHover={{
+                      scale: 1.2,
                       y: -8,
-                      transition: { duration: 0.2 }
+                      transition: { duration: 0.2 },
                     }}
                     className="group relative"
                   >
@@ -406,7 +503,7 @@ export function AboutSection() {
                         <social.icon className="h-6 w-6" />
                       </a>
                     </Button>
-                    
+
                     {/* Tooltip */}
                     <motion.div
                       className="absolute -top-12 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-foreground text-background text-sm font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap"
@@ -419,7 +516,7 @@ export function AboutSection() {
                   </motion.div>
                 ))}
               </div>
-              
+
               <motion.p
                 className="mt-6 text-muted-foreground"
                 initial={{ opacity: 0 }}
